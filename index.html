@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billing System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section
+      class="w-full h-screen bg-stone-500 flex items-center justify-center flex-col gap-4"
+    >
+      
+      <!--main bill-->
+        
+      <form id="myForm" class="w-4/6 h-auto bg-stone-100 rounded-xl sm:w-full md:w-5/6 lg:w-4/6 overflow-scroll"
+      >
+        <!-- Heading -->
+        <div
+          class="w-full p-2 flex justify-center sm:justify-center lg:justify-center md:justify-center sticky top-0 bg-white z-10 shadow-md"
+        >
+          <span class="text-xl font-serif sm:text-2xl md:text-3xl lg:text-4xl"
+            >Billing Details</span
+          >
+        </div>
+
+        <!-- Border -->
+        <div
+          class="w-full border border-stone-400 flex justify-center items-center mb-4"
+        ></div>
+
+        <!--bill no and date-->
+
+        <div
+          class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 p-1"
+        >
+          <div class="w-full">
+            <label
+              for="itemName"
+              class="block text-sm font-medium text-gray-700"
+              >Enter Date*</label
+            >
+            <input
+              type="date"
+              id="PurchaseDate"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter Item name"
+              required
+            />
+          </div>
+          <div class="w-full">
+            <label for="price" class="block text-sm font-medium text-gray-700"
+              >Bill No*</label
+            >
+            <input
+              type="number"
+              id="customerBillNumber"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Customer Details -->
+        <div
+          class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 p-1"
+        >
+          <div class="w-full">
+            <label
+              for="customerName"
+              class="block text-sm font-medium text-gray-700"
+              >Customer Name</label
+            >
+            <input
+              type="text"
+              id="customerName"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter customer name"
+            />
+          </div>
+          <div class="w-full">
+            <label
+              for="customerEmail"
+              class="block text-sm font-medium text-gray-700"
+              >Customer Email</label
+            >
+            <input
+              type="email"
+              id="customerEmail"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter customer email"
+            />
+          </div>
+        </div>
+
+         <!--phone number-->
+
+         <div
+          class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 p-1"
+        >
+          <div class="w-full">
+            <label
+              for="quantity"
+              class="block text-sm font-medium text-gray-700"
+              >Enter Phone Number*</label
+            >
+            <input
+              type="number"
+              id="customerPhone"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter Phone Number"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Items and Price -->
+        <div
+          class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 p-1"
+        >
+          <div class="w-full">
+            <label
+              for="itemName"
+              class="block text-sm font-medium text-gray-700"
+              >Enter Item Name*</label
+            >
+            <input
+              type="text"
+              id="itemName"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter Item name"
+              required
+            />
+          </div>
+          <div class="w-full">
+            <label for="price" class="block text-sm font-medium text-gray-700"
+              >Price*</label
+            >
+            <input
+              type="number"
+              id="price"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter Price"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Quantity Section -->
+        <div
+          class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 p-1"
+        >
+          <div class="w-full">
+            <label
+              for="quantity"
+              class="block text-sm font-medium text-gray-700"
+              >Enter Quantity*</label
+            >
+            <input
+              type="number"
+              id="quantity"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter quantity"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Button Section -->
+        <div
+          class="p-1 flex justify-center sm:justify-center md:justify-center lg:justify-end w-full"
+        >
+          <button
+            type="button"
+            id="addItemButton"
+            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-14 py-2.5 text-center sm:w-full md:w-1/2 lg:w-1/3"
+          >
+            Add Item To List
+          </button>
+        </div>
+
+        <!-- Table Section -->
+        <div class="w-full p-1 mt-4">
+          <div class="relative overflow-x-auto">
+            <table class="w-full text-sm font-bold text-left rtl:text-right">
+              <thead class="text-md uppercase">
+                <tr>
+                  <th scope="col" class="px-6 py-3">Items</th>
+                  <th scope="col" class="px-6 py-3">Price</th>
+                  <th scope="col" class="px-6 py-3">Quantity</th>
+                  <th scope="col" class="px-6 py-3">GST</th>
+                  <th scope="col" class="px-6 py-3">Total</th>
+                </tr>
+              </thead>
+              <tbody id="itemsTableBody">
+                <!-- Rows will be added here dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Grand Total Section -->
+        <div class="flex justify-end p-2 text-xl">
+          <span id="grandTotal">Grand Total : ₹ 0.00</span>
+        </div>
+
+        <!--print button-->
+
+        <div
+          class="p-1 flex justify-center sm:justify-center md:justify-center lg:justify-center w-full"
+        >
+          <button
+            type="button"
+            id="printBillItem"
+            class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-2xl text-center sm:w-full md:w-1/2 lg:w-full"
+          >
+            Print Bill
+          </button>
+        </div>
+
+        <!--reset form button-->
+        
+        <div
+          class="p-1 flex justify-center sm:justify-center md:justify-center lg:justify-center w-full"
+        >
+          <button
+            type="button"
+            id="resetBillItem"
+            class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center sm:w-full md:w-1/2 lg:w-full"
+          >
+            Reset All
+          </button>
+        </div>
+
+        <!-- Reset Button -->
+
+        <div class="p-2 flex justify-center w-full">
+          <button type="button" id="resetBillPrintItem"
+            class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm sm:text-base px-5 py-2.5 w-full sm:w-full md:w-1/2 lg:w-full">
+            Clear All
+          </button>
+        </div>
+
+      </form>
+
+      <!--Printing Bill-->
+
+      <form id="myFar" style="display: none;" class="w-full sm:w-full md:w-5/6 lg:w-4/6 h-auto bg-stone-50 rounded-xl overflow-scroll">
+
+        <!-- Printing bill heading -->
+        <div class="w-full h-12 flex justify-between p-2 sm:p-4">
+          <img class="h-full max-w-[120px]" src="https://www.hardwinsoftware.com/images/logo.svg" alt="Logo">
+          <span class="text-2xl font-mono">Bill Details</span>
+        </div>
+      
+        <!-- Address details -->
+        <div class="w-full h-8 mt-2 flex justify-center items-center text-center px-2">
+          <span class="font-serif text-sm sm:text-base">Central Revenue Layout, No. 27, 6th Main road, Post, S R K Nagar, RK Hegde Nagar, Bengaluru, Karnataka 560077</span>
+        </div>
+      
+        <!-- Date and Bill No -->
+        <div class="flex p-2 flex-col gap-1 w-full font-serif text-sm sm:text-base">
+          <span id="customerAttendDate">Date:</span>
+          <span id="customerBillDetail">Bill No:</span>
+        </div>
+      
+        <!-- Customer Name, Email, and Phone -->
+        <div class="flex flex-col gap-1 p-2 w-full h-24 border font-serif text-sm sm:text-base">
+          <span id="customerDetail">Customer Name:</span>
+          <span id="customerDetailEmail">Customer Email:</span>
+          <span id="customerPhoneNumber">Customer Phone Number:</span>
+        </div>
+      
+        <!-- Table details -->
+        <div class="w-full p-2 mt-4">
+          <div class="relative overflow-x-auto">
+            <table class="w-full text-sm font-bold text-left rtl:text-right">
+              <thead class="text-md uppercase">
+                <tr>
+                  <th scope="col" class="px-4 py-3">Items</th>
+                  <th scope="col" class="px-4 py-3">Price</th>
+                  <th scope="col" class="px-4 py-3">Quantity</th>
+                  <th scope="col" class="px-4 py-3">GST</th>
+                  <th scope="col" class="px-4 py-3">Total</th>
+                </tr>
+              </thead>
+              <tbody id="billTableBody">
+                <!-- Rows will be added here dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      
+        <!-- Grand total -->
+        <div class="flex justify-end p-2 text-xl flex-col gap-2 mt-4 sm:mt-6">
+          <span class="text-sm sm:text-xl">Grand Total : <span id="printSpan"> ₹ </span></span>
+          <span class="text-sm sm:text-xl">GST Total : <span id="grossServiceTax"> ₹ </span></span>
+        </div>     
+      </form>
+      
+    </section>
+  </body>
+  <script src="index.js"></script>
+</html>
